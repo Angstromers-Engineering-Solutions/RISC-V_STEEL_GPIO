@@ -1,11 +1,24 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2020-2025 RVX Project Contributors
+//
+//   gpio[1:0]  LD4, LD5  (LEDs)
+//   gpio[3:2]  SW0, SW1  (slide switches)
+//
+// The direction of each pin is chosen by software (OE register).
+// BTN0 is the SoC reset.
+
 module gpio_arty_a7 #(
-  parameter GPIO_WIDTH = 8
+
+  parameter GPIO_WIDTH = 4
+
   )(
+
   input   wire clock,
   input   wire reset,
   input   wire uart_rx,
   output  wire uart_tx,
   inout   wire [GPIO_WIDTH-1:0] gpio
+
   );
 
   // GPIO signals
